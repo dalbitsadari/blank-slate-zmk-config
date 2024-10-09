@@ -53,7 +53,7 @@
 		bindings = <&kp LSHFT>, <&caps_word>;
 	};
     };
-/ {
+
     combos {
         compatible = "zmk,combos";
         combo_del {
@@ -62,7 +62,7 @@
             bindings = <&kp DEL>;
         };
     };
-};
+
 
 // Conditional layer only when we have less thumb keys
 #ifdef TBLE_DUAL_2U
