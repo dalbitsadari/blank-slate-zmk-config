@@ -137,7 +137,7 @@
             label = "FNC";
             bindings = <
 &trans     &kp F1     &kp F2     &kp F3      &kp F4       &kp F5       &F6       &none      &kp INS    &kp PRINTSCREEN       &kp PAUSE_BREAK     &bootloader
-&CAPSLOCK  &kp F7     &kp F8     &kp F9      &kp F10      &kp F11      &F12      &none      &none      &none                 &SCROLLLOCK         &trans
+&CAPSLOCK  &kp F7     &kp F8     &kp F9      &kp F10      &kp F11      &F12      &none      &none      &none                 &kp SCROLLLOCK      &trans
 &trans     &none      &none      &none       &none        &none        &none     &none      &none      &none                 &none               &trans
 #ifdef TBLE_DUAL_2U
 &trans &trans        &trans     &kp RPAR                &trans                    &trans       &trans         &trans &trans &trans
@@ -152,7 +152,7 @@
         med_layer {
             label = "MED";
             bindings = <
-&trans      &bt BT(0)  &bt BT(1)  &bt BT(2)  &bt BT(3)  &bt BT(4)  &none      &C_BRI_DEC  &C_BRI_UP  &C_VOL_DN  &C_VOL_UP  &C_MUTE
+&trans      &bt BT(0)  &bt BT(1)  &bt BT(2)  &bt BT(3)  &bt BT(4)  &none      & C_BRI_DEC  &C_BRI_UP  &C_VOL_DN  &C_VOL_UP &C_MUTE
 &trans      &none      &none      &none      &none      &none      &none      &none       &C_PREV    &C_PP      &C_NEXT    &none
 &trans      &none      &none      &none      &none      &none      &none      &none       &none      &none      &none      &none
 #ifdef TBLE_DUAL_2U
@@ -160,7 +160,7 @@
 #elif defined(TBLE_MIT)
 &trans      &trans     &trans     &tran      &trans          &trans           &trans      &trans     &trans     &trans     &trans
 #else  
-&&bt BT_CLR &trans     &trans     &trans     &trans     &trans    &trans      &trans      &trans     &trans     &trans     &trans
+&bt BT_CLR &trans     &trans     &trans     &trans     &trans    &trans      &trans      &trans     &trans     &trans     &trans
 #endif
             >;
         };
