@@ -17,7 +17,8 @@
 
 #define NAV 1
 #define NUM 2
-#define SYM 3
+#define FNC 3
+#define MED 4
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -70,7 +71,7 @@
         compatible = "zmk,conditional-layers";
 	tri {
 	    if-layers = <NUM NAV>;
-	    then-layer = <SYM>;
+	    then-layer = <FNC>;
         };
     };
 #endif
@@ -84,7 +85,7 @@
 #ifdef QWERTY_BASE
  &kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
  &kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp RET  
- &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &kp RSHFT
+ &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &mo NAV
 #else
  &kp ESC    &kp Q      &kp W      &kp F       &kp P          &kp B          &kp J            &kp L          &kp U       &kp Y      &kp QUOT      &kp BKSP
  &kp TAB    &kp A      &kp R      &kp S       &kp T          &kp G          &kp M            &kp N          &kp E       &kp I      &kp O         &kp QUOT
@@ -95,7 +96,7 @@
 #elif defined(TBLE_MIT)
  &kp LCTRL  &mo SYM   &kp LGUI  &kp LALT    &mo NAV             &kp SPACE                &mo NUM      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &kp LCTRL  &mo SYM   &kp LALT  &kp LGUI    &mo NUM      &kp SPACE      &kp LSHIFT       &mo NAV      &kp RGUI    &kp RALT   &kp RCTRL     &mo NAV
+ &kp LCTRL  &mo SYM   &kp LALT  &kp LGUI    &mo NUM      &kp SPACE      &kp LSHIFT       &mo MED      &kp RGUI    &kp RALT   &kp RCTRL     &kp K_APP
 #endif
             >;
         };
@@ -103,9 +104,9 @@
         nav_layer {
             label = "Nav";
             bindings = <
-&bt BT_CLR &trans     &trans     &trans      &trans          &trans       &trans     &trans         &kp C_PREV  &kp C_PP   &kp C_NEXT   &trans
-&trans     &trans     &trans     &trans      &trans          &trans       &trans     &kp PG_UP      &kp HOME    &kp UP     &kp END      &trans
-&trans     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)       &bt BT(4)    &trans     &kp PG_DN      &kp LEFT    &kp DOWN   &kp RIGHT    &trans
+&trans      &none      &none      &none      &none      &none      &none      &none      &none       &none      &none      &trans
+&trans      &none      &none      &none      &none      &none      &none      &kp PG_UP  &kp HOME    &kp UP     &kp END    &trans
+&trans      &none      &none      &none      &none      &none      &none      &kp PG_DN  &kp LEFT    &kp DOWN   &kp RIGHT  &trans
 #ifdef TBLE_DUAL_2U
 &trans  &trans        &trans     &trans              &trans                    &trans       &trans         &trans &trans &trans
 #elif defined(TBLE_MIT)
@@ -133,17 +134,33 @@
         };
 
         sym_layer {
-            label = "Sym";
+            label = "FNC";
             bindings = <
-&trans     &kp LBRC   &kp AMPS   &kp STAR    &kp LPAR     &kp RBRC     &trans     &trans    &trans       &trans       &trans     &bootloader
-&trans     &kp COLON  &kp DLLR   &kp PRCNT   &kp CARET    &kp PLUS     &trans     &trans    &trans       &trans       &trans     &trans
-&trans     &kp TILDE  &kp EXCL   &kp AT      &kp HASH     &kp PIPE     &trans     &trans    &trans       &trans       &trans     &trans
+&trans     &kp F1     &kp F2     &kp F3      &kp F4       &kp F5       &F6       &none      &kp INS    &kp PRINTSCREEN       &kp PAUSE_BREAK     &bootloader
+&CAPSLOCK  &kp F7     &kp F8     &kp F9      &kp F10      &kp F11      &F12      &none      &none      &none                 &SCROLLLOCK         &trans
+&trans     &none      &none      &none       &none        &none        &none     &none      &none      &none                 &none               &trans
 #ifdef TBLE_DUAL_2U
 &trans &trans        &trans     &kp RPAR                &trans                    &trans       &trans         &trans &trans &trans
 #elif defined(TBLE_MIT)
 &trans &trans        &trans     &kp RPAR        &trans                &trans             &trans      &trans   &trans &trans &trans
 #else
-&trans &trans        &trans     &kp RPAR        &trans          &trans       &trans    &trans  &trans         &trans &trans &trans
+&trans &trans        &trans     &trans        &trans          &trans       &trans    &trans  &trans         &trans &trans &trans
+#endif
+            >;
+        };
+
+        MED_layer {
+            label = "MED";
+            bindings = <
+&trans      &bt BT(0)  &bt BT(1)  &bt BT(2)  &bt BT(3)  &bt BT(4)  &none      &C_BRI_DEC  &C_BRI_UP  &C_VOL_DN  &C_VOL_UP  &C_MUTE
+&trans      &none      &none      &none      &none      &none      &none      &none       &C_PREV    &C_PP      &C_NEXT    &none
+&trans      &none      &none      &none      &none      &none      &none      &none       &none      &none      &none      &none
+#ifdef TBLE_DUAL_2U
+&trans      &trans     &trans     &trans          &trans                &trans            &trans     &trans     &trans     &trans
+#elif defined(TBLE_MIT)
+&trans      &trans     &trans     &tran      &trans          &trans           &trans      &trans     &trans     &trans     &trans
+#else  
+&&bt BT_CLR &trans     &trans     &trans     &trans     &trans    &trans      &trans      &trans     &trans     &trans     &trans
 #endif
             >;
         };
