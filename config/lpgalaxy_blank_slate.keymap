@@ -71,7 +71,7 @@
 	combo_cmdx {
 	    timeout-ms = <50>;
 	    key-positions = <28 29>;
-	    bindings = <&kp LG((LA(X))>;
+	    bindings = <&kp LG(LA(V))>;
         };
 	combo_cmdc {
 	    timeout-ms = <50>;
