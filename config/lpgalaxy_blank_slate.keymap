@@ -65,13 +65,13 @@
 	
 	combo_cmdz {
 	    timeout-ms = <50>;
-	    key-positions = <24 25>;
+	    key-positions = <25 26>;
 	    bindings = <&kp LG(Z)>;
         };
 	combo_cmdx {
 	    timeout-ms = <50>;
-	    key-positions = <25 26>;
-	    bindings = <&kp LG(X)>;
+	    key-positions = <28 29>;
+	    bindings = <&kp LG((LA(X))>;
         };
 	combo_cmdc {
 	    timeout-ms = <50>;
