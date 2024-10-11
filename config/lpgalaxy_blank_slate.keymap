@@ -61,6 +61,12 @@
             timeout-ms = <50>;
             key-positions = <11 23>;
             bindings = <&kp DEL>;
+	};
+	
+	combo_cmdz {
+	    timeout-ms = <50>;
+	    key-positions = <25 26>;
+	    bindings = <&kp LGUI &kp Z>;
         };
     };
 
