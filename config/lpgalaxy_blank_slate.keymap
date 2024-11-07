@@ -125,9 +125,9 @@
         nav_layer {
             label = "Nav";
             bindings = <
-&trans      &none      &none      &none      &none      &none      &kp NLCK   &kp PRINTSCREEN  &kp SCROLLLOCK   &kp PAUSE_BREAK  &kp INS      &trans
-&trans      &none      &none      &none      &none      &none      &none      &kp PG_UP        &kp HOME         &kp UP           &kp END      &trans
-&trans      &none      &none      &none      &none      &none      &none      &kp PG_DN        &kp LEFT         &kp DOWN         &kp RIGHT    &trans
+&trans      &none      &none      &none      &none      &none      &kp KP_NLCK &kp PRINTSCREEN  &kp SCROLLLOCK   &kp PAUSE_BREAK  &kp INS      &trans
+&trans      &none      &none      &none      &none      &none      &none       &kp PG_UP        &kp HOME         &kp UP           &kp END      &trans
+&trans      &none      &none      &none      &none      &none      &none       &kp PG_DN        &kp LEFT         &kp DOWN         &kp RIGHT    &trans
 #ifdef TBLE_DUAL_2U
 &trans  &trans        &trans     &trans              &trans                    &trans       &trans         &trans     &trans    &trans
 #elif defined(TBLE_MIT)
