@@ -149,7 +149,7 @@
 #elif defined(TBLE_MIT)
 &trans  &trans       &trans     &kp N0      &trans           &none            &trans        &kp DEL         &trans    &trans 	&trans
 #else
-&trans  &trans       &trans     &trans      &trans    &trans      &trans     &kp KP_N0    &kp KP_DOT   &kp KP_EQUAL   &kp KP_DIVIDE    &trans
+&trans  &trans       &trans     &trans      &trans    &trans      &trans     &kp KP_N0    &kp KP_DOT   &kp EQUAL   &kp KP_DIVIDE    &trans
 #endif
             >;
         };
