@@ -143,7 +143,7 @@
             bindings = <
 &trans     &kp EXCL   &kp AT    &kp HASH         &kp DOLLAR         &kp LPAR       &kp RPAR          &kp KP_N7   &kp KP_N8    &kp KP_N9   &kp KP_PLUS      &trans
 &trans     &kp PRCNT  &kp CARET &kp AMPS         &kp ASTRK          &kp LBKT       &kp RBKT          &kp KP_N4   &kp KP_N5    &kp KP_N6   &kp MINUS        &trans
-&trans     &kp GRAVE  &kp TILDE &kp SINGLE_QUOTE &kp DOUBLE_QUOTES  &kp LESS_THAN  &kp GREATER_THAN  &kp KP_N1   &kp KP_N2    &kp KP_N3   &kp KP_MULTIPLY  &trans
+&trans     &kp GRAVE  &kp TILDE &kp SINGLE_QUOTE &kp NON_US_BSLH    &kp LESS_THAN  &kp GREATER_THAN  &kp KP_N1   &kp KP_N2    &kp KP_N3   &kp KP_MULTIPLY  &trans
 #ifdef TBLE_DUAL_2U
 &trans  &trans       &trans     &kp N0              &trans                 &trans            &trans         &trans    &trans   	&trans
 #elif defined(TBLE_MIT)
