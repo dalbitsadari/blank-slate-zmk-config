@@ -146,7 +146,7 @@
 #ifdef QWERTY_BASE
  &kp Q    &kp W    &kp E    &mt LPAR R   &mt RPAR T    &mt LBKT Y   &mt RBKT U   &kp I     &kp O     &kp P      &kp C_BRI_UP    &kp C_VOL_UP
  &kp A    &kp S    &kp D    &mt LBRC F   &mt RBRC G    &mt LT H     &mt GT J     &kp K     &kp L     &kp RET    &kp C_BRI_DN    &kp C_VOL_DN
- &kp Z    &kp X    &kp C    &kp V        &kp SPACE     &kp BSPC     &kp B        &kp N     &kp M     &mo NAV    &kp LANG1       &kp C_MUTE
+ &kp Z    &kp X    &kp C    &kp V        &kp SPACE     &kp BSPC     &kp B        &kp N     &kp M     &mo 0      &kp LANG1       &kp C_MUTE
 #else
  &kp ESC    &kp Q      &kp W      &kp F       &kp P          &kp B          &kp J            &kp L          &kp U       &kp Y      &kp QUOT      &kp BKSP
  &kp TAB    &kp A      &kp R      &kp S       &kp T          &kp G          &kp M            &kp N          &kp E       &kp I      &kp O         &kp QUOT
@@ -157,7 +157,7 @@
 #elif defined(TBLE_MIT)
  &kp LCTRL  &mo FNC   &kp LGUI  &kp LALT    &mo NAV          &kp SPACE         &mo NUM      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &kp LCTRL  &kp LGUI   &kp LALT  &mo NUM   &kp LSHIFT    &kp DEL   &kp K_APP   &kp RALT   &kp RGUI    &kp RCTRL   &kp LANG2      &mo FNC 
+ &kp LCTRL  &kp LGUI   &kp LALT  &mo 1   &kp LSHIFT    &kp DEL   &kp K_APP   &kp RALT   &kp RGUI    &kp RCTRL   &kp LANG2      &mo 2 
 #endif
             >;
         };
@@ -181,9 +181,9 @@
         num_layer {
             label = "Num";
             bindings = <
-&kp GRAVE    &kp APOS    &kp SEMI    &kp BSLH     &none      &none      &kp N7    &kp N8   &kp N9    &kp EQUAL  &kp trans    &trans
-&kp EXCL     &kp AT      &kp HASH    &kp DOLLAR   &none      &none      &kp N4    &kp N5   &kp N6    &trans     &kp trans    &trans
-&kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK    &trans     &trans     &kp N1    &kp N2   &kp N3    &kp PLUS   &kp trans    &trans
+&kp GRAVE    &kp APOS    &kp SEMI    &kp BSLH     &none      &none      &kp N7    &kp N8   &kp N9    &kp EQUAL  &trans    &trans
+&kp EXCL     &kp AT      &kp HASH    &kp DOLLAR   &none      &none      &kp N4    &kp N5   &kp N6    &trans     &trans    &trans
+&kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK    &trans     &trans     &kp N1    &kp N2   &kp N3    &kp PLUS   &trans    &trans
 #ifdef TBLE_DUAL_2U
 &trans  &trans       &trans     &kp N0              &trans                 &trans            &trans         &trans    &trans   	&trans
 #elif defined(TBLE_MIT)
@@ -197,7 +197,7 @@
         fnc_layer {
             label = "FNC";
             bindings = <
-&kp C_PWR     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)    &bt BT(4)    &none        &none      &none      &none      &none     &bootloader
+&kp C_PWR     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)    &bt BT(4)   &none        &none      &none      &none      &none     &bootloader
 &none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none      &none
 &none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none      &bt BT_CLR
 #ifdef TBLE_DUAL_2U
