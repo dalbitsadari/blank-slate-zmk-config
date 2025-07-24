@@ -19,22 +19,18 @@
     tapping-term-ms = <300>;
 };
 
-&lt {
-    tapping-term-ms = <300>;
-};
-
 / {
 	combos {
         compatible = "zmk,combos";
 	combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            bindings = <&kp ESC>
+            bindings = <&kp ESC>;
 	};
 	combo_tab {
             timeout-ms = <50>;
             key-positions = <12 13>;
-            bindings = <&kp TAB>
+            bindings = <&kp TAB>;
 	};
 	combo_caps {
             timeout-ms = <50>;
@@ -44,7 +40,7 @@
 	combo_dot {
             timeout-ms = <50>;
             key-positions = <31 32>;
-            bindings = <&kp DOT>
+            bindings = <&kp DOT>;
 	};
 	combo_comma {
             timeout-ms = <50>;
@@ -120,7 +116,7 @@
         FNC_layer {
             label = "FNC";
             bindings = <
-&kp C_PWR     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)    &bt BT(4)   &none        &none      &none      &none      &none     &bootloader
+&kp C_PWR     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)   &bt BT(4)   &none        &none      &none      &none      &none     &bootloader
 &none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none     &none
 &none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none     &bt BT_CLR
 &none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none     &trans
