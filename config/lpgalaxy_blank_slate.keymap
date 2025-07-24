@@ -26,7 +26,6 @@
 / {
 	combos {
         compatible = "zmk,combos";
-
 	combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
@@ -90,49 +89,43 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "DEF";
             bindings = <
  &kp Q    &kp W    &kp E    &mt LPAR R   &mt RPAR T    &mt LBKT Y   &mt RBKT U   &kp I     &kp O     &kp P      &kp C_BRI_UP    &kp C_VOL_UP
  &kp A    &kp S    &kp D    &mt LBRC F   &mt RBRC G    &mt LT H     &mt GT J     &kp K     &kp L     &kp RET    &kp C_BRI_DN    &kp C_VOL_DN
- &kp Z    &kp X    &kp C    &kp V        &kp SPACE     &kp BSPC     &kp B        &kp N     &kp M     &mo NAV    &kp LANG1       &kp C_MUTE
- &kp LCTRL  &kp LGUI   &kp LALT  &mo NUM   &kp LSHIFT    &kp DEL   &kp K_APP   &kp RALT   &kp RGUI   &kp RCTRL  &kp LANG2       &mo FNC
-#endif
+ &kp Z    &kp X    &kp C    &kp V        &kp SPACE     &kp BSPC     &kp B        &kp N     &kp M     &mo 1    &kp LANG1       &kp C_MUTE
+ &kp LCTRL  &kp LGUI   &kp LALT  &mo 2   &kp LSHIFT    &kp DEL   &kp K_APP   &kp RALT   &kp RGUI   &kp RCTRL  &kp LANG2       &mo 3
             >;
         };
 
-        nav_layer {
+        NAV_layer {
             label = "Nav";
             bindings = <
 &kp F1      &kp F2      &kp F3      &kp F4      &none      &none     &kp HOME     &none       &kp PG_UP      &none      &none     &none
 &kp F5      &kp F6      &kp F7      &kp F8      &none      &none     &kp END      &kp UP      &kp PG_DN      &trans     &none     &none
 &kp F9      &kp F10     &kp F11     &kp F12     &none      &trans    &kp LEFT     &kp DOWN    &kp RIGHT      &trans     &none     &none
 &trans      &trans      &trans      &trans      &trans     &trans    &trans       &trans      &trans         &trans    &trans    &trans
-#endif
             >;
         };
 
-        num_layer {
+        NUM_layer {
             label = "Num";
             bindings = <
 &kp GRAVE    &kp APOS    &kp SEMI    &kp BSLH     &none      &none      &kp N7    &kp N8   &kp N9    &kp EQUAL  &trans    &trans
 &kp EXCL     &kp AT      &kp HASH    &kp DOLLAR   &none      &none      &kp N4    &kp N5   &kp N6    &trans     &trans    &trans
 &kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK    &trans     &trans     &kp N1    &kp N2   &kp N3    &kp PLUS   &trans    &trans
 &trans       &trans      &trans      &trans       &trans    &trans      &kp N0    &kp SLASH  &kp ASTRK    &kp MINUS    &trans    &trans
-#endif
             >;
         };
 
-        fnc_layer {
+        FNC_layer {
             label = "FNC";
             bindings = <
 &kp C_PWR     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)    &bt BT(4)   &none        &none      &none      &none      &none     &bootloader
 &none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none     &none
 &none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none     &bt BT_CLR
 &none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none     &trans
-#endif
             >;
         };
-
 
     };
 };
