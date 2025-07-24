@@ -8,10 +8,11 @@
 #define NUM 2
 #define FNC 3
 
+
 &mt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <300>;
+    tapping-term-ms = <200>;
 };
+
 
 / {
 
