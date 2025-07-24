@@ -13,10 +13,6 @@
     tapping-term-ms = <300>;
 };
 
-&lt {
-    tapping-term-ms = <300>;
-};
-
 / {
 
     combos {
