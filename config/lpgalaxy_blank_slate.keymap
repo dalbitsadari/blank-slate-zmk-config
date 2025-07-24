@@ -93,6 +93,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            label = "DEF";
             bindings = <
  			&kp Q      &kp W      &kp E     &mt LPAR R   &mt RPAR T    &mt LBKT Y   &mt RBKT U   &kp I     &kp O     &kp P      &kp C_BRI_UP    &kp C_VOL_UP
  			&kp A      &kp S      &kp D     &mt LBRC F   &mt RBRC G    &mt LT H     &mt GT J     &kp K     &kp L     &kp RET    &kp C_BRI_DN    &kp C_VOL_DN
