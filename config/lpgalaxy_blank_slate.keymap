@@ -43,7 +43,7 @@
             bindings = <&kp COMMA>;
 	};
 
-	combo_semicolon {
+	combo_semi {
             timeout-ms = <50>;
             key-positions = <19 20>;
             bindings = <&kp SEMI>;
