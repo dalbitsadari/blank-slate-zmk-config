@@ -15,9 +15,9 @@
 // #define TBLE_MIT     1
 // #define TBLE_DUAL_2U 1
 
-#define NAV 1
-#define NUM 2
-#define FNC 3
+#define NAV 2
+#define NUM 3
+#define FNC 4
 
 &mt {
     flavor = "tap-preferred";
