@@ -15,10 +15,19 @@
 // #define TBLE_MIT     1
 // #define TBLE_DUAL_2U 1
 
-#define NAV 1
-#define NUM 2
-#define FNC 3
-#define MED 4
+#define NAV 0
+#define NUM 1
+#define FNC 2
+
+&mt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <300>;
+};
+
+&lt {
+    tapping-term-ms = <300>;
+};
+
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -57,32 +66,63 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_del {
+
+	combo_esc {
             timeout-ms = <50>;
-            key-positions = <11 23>;
-            bindings = <&kp DEL>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>
 	};
-	
-	combo_cmdz {
+	combo_tab {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp TAB>
+	};
+	combo_caps {
+            timeout-ms = <50>;
+            key-positions = <12 14>;
+            bindings = <&kp CAPS>
+	};
+	combo_dot {
+            timeout-ms = <50>;
+            key-positions = <31 32>;
+            bindings = <&kp DOT>
+	};
+	combo_comma {
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+            bindings = <&kp COMMA>;
+	};
+	combo_semicolon {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp SEMI>;
+	};
+	combo_slash {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp SLASH>;
+	};
+	combo_ctrlz {
 	    timeout-ms = <50>;
-	    key-positions = <25 26>;
-	    bindings = <&kp LG(Z)>;
+	    key-positions = <24 27>;
+	    bindings = <&kp LC(Z)>;
         };
 	combo_cmdx {
 	    timeout-ms = <50>;
-	    key-positions = <28 29>;
-	    bindings = <&kp LG(LA(V))>;
+	    key-positions = <24 25>;
+	    bindings = <&kp LC(X)>;
         };
 	combo_cmdc {
 	    timeout-ms = <50>;
-	    key-positions = <26 27>;
-	    bindings = <&kp LG(C)>;
+	    key-positions = <25 26>;
+	    bindings = <&kp LC(C)>;
         };
 	combo_cmdv {
 	    timeout-ms = <50>;
-	    key-positions = <27 28>;
-	    bindings = <&kp LG(V)>;
+	    key-positions = <26 27>;
+	    bindings = <&kp LC(V)>;
         };
+
     };
 
 
@@ -104,20 +144,20 @@
             label = "Base";
             bindings = <
 #ifdef QWERTY_BASE
- &kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
- &kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp RET  
- &kp CAPS   &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &mo NAV
+ &kp Q    &kp W    &kp E    &mt LPAR R   &mt RPAR T    &mt LBKT Y   &mt RBKT U   &kp I     &kp O     &kp P      &kp C_BRI_UP    &kp C_VOL_UP
+ &kp A    &kp S    &kp D    &mt LBRC F   &mt RBRC G    &mt LT H     &mt GT J     &kp K     &kp L     &kp RET    &kp C_BRI_DN    &kp C_VOL_DN
+ &kp Z    &kp X    &kp C    &kp V        &kp SPACE     &kp BSPC     &kp B        &kp N     &kp M     &mo NAV    &kp LANG1       &kp C_MUTE
 #else
  &kp ESC    &kp Q      &kp W      &kp F       &kp P          &kp B          &kp J            &kp L          &kp U       &kp Y      &kp QUOT      &kp BKSP
  &kp TAB    &kp A      &kp R      &kp S       &kp T          &kp G          &kp M            &kp N          &kp E       &kp I      &kp O         &kp QUOT
  &kp LSHFT  &kp Z      &kp X      &kp C       &kp D          &kp V          &kp K            &kp H          &kp COMMA   &kp DOT    &kp SEMI      &kp RET
 #endif
 #ifdef TBLE_DUAL_2U
- &kp LCTRL  &kp LGUI   &kp LALT   &mo NAV         &shifty                        &kp SPACE                &mo NUM   &kp LALT   &kp RGUI      &kp RSHIFT
+ &kp LCTRL  &kp LGUI   &kp LALT   &mo NAV         &shifty           &kp SPACE          &mo NUM   &kp LALT   &kp RGUI      &kp RSHIFT
 #elif defined(TBLE_MIT)
- &kp LCTRL  &mo FNC   &kp LGUI  &kp LALT    &mo NAV             &kp SPACE                &mo NUM      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
+ &kp LCTRL  &mo FNC   &kp LGUI  &kp LALT    &mo NAV          &kp SPACE         &mo NUM      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &kp LCTRL  &mo FNC   &kp LALT  &kp LGUI    &mo NUM      &kp SPACE      &kp LSHIFT       &mo MED      &kp RGUI    &kp RALT   &kp RCTRL     &kp K_APP
+ &kp LCTRL  &kp LGUI   &kp LALT  &mo NUM   &kp LSHIFT    &kp DEL   &kp K_APP   &kp RALT   &kp RGUI    &kp RCTRL   &kp LANG2      &mo FNC 
 #endif
             >;
         };
@@ -125,9 +165,9 @@
         nav_layer {
             label = "Nav";
             bindings = <
-&trans      &none      &none      &none      &none      &none      &kp KP_NLCK &kp PRINTSCREEN  &kp SCROLLLOCK   &kp PAUSE_BREAK  &kp INS      &trans
-&trans      &none      &none      &none      &none      &none      &none       &kp PG_UP        &kp HOME         &kp UP           &kp END      &trans
-&trans      &none      &none      &none      &none      &none      &none       &kp PG_DN        &kp LEFT         &kp DOWN         &kp RIGHT    &trans
+&kp F1      &kp F2      &kp F3      &kp F4      &none      &none     &kp HOME     &none       &kp PG_UP      &none      &none     &none
+&kp F5      &kp F6      &kp F7      &kp F8      &none      &none     &kp END      &kp UP      &kp PG_DN      &trans     &none     &none
+&kp F9      &kp F10     &kp F11     &kp F12     &none      &trans    &kp LEFT     &kp DOWN    &kp RIGHT      &trans     &none     &none
 #ifdef TBLE_DUAL_2U
 &trans  &trans        &trans     &trans              &trans                    &trans       &trans         &trans     &trans    &trans
 #elif defined(TBLE_MIT)
@@ -141,15 +181,15 @@
         num_layer {
             label = "Num";
             bindings = <
-&trans     &kp EXCL   &kp AT    &kp HASH         &kp DOLLAR         &kp LPAR       &kp RPAR          &kp KP_N7   &kp KP_N8    &kp KP_N9   &kp KP_PLUS      &trans
-&trans     &kp PRCNT  &kp CARET &kp AMPS         &kp ASTRK          &kp LBKT       &kp RBKT          &kp KP_N4   &kp KP_N5    &kp KP_N6   &kp MINUS        &trans
-&trans     &kp GRAVE  &kp TILDE &kp SINGLE_QUOTE &kp NON_US_BSLH    &kp LESS_THAN  &kp GREATER_THAN  &kp KP_N1   &kp KP_N2    &kp KP_N3   &kp KP_MULTIPLY  &trans
+&kp GRAVE    &kp APOS    &kp SEMI    &kp BSLH     &none      &none      &kp N7    &kp N8   &kp N9    &kp EQUAL  &kp trans    &trans
+&kp EXCL     &kp AT      &kp HASH    &kp DOLLAR   &none      &none      &kp N4    &kp N5   &kp N6    &trans     &kp trans    &trans
+&kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK    &trans     &trans     &kp N1    &kp N2   &kp N3    &kp PLUS   &kp trans    &trans
 #ifdef TBLE_DUAL_2U
 &trans  &trans       &trans     &kp N0              &trans                 &trans            &trans         &trans    &trans   	&trans
 #elif defined(TBLE_MIT)
 &trans  &trans       &trans     &kp N0      &trans           &none            &trans        &kp DEL         &trans    &trans 	&trans
 #else
-&trans  &trans       &trans     &trans      &trans    &trans      &trans     &kp KP_N0    &kp KP_DOT   &kp EQUAL   &kp KP_DIVIDE    &trans
+&trans     &trans      &trans        &trans       &trans    &trans   &kp N0     &kp SLASH    &kp ASTRK    &kp MINUS    &trans    &trans
 #endif
             >;
         };
@@ -157,31 +197,15 @@
         fnc_layer {
             label = "FNC";
             bindings = <
-&kp C_PWR     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)    &bt BT(4)    &none        &none      &none      &none      &none      &bootloader
-&trans        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none      &trans
-&trans        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none      &trans
+&kp C_PWR     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)    &bt BT(4)    &none        &none      &none      &none      &none     &bootloader
+&none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none      &none
+&none        &none      &none      &none       &none        &none        &none        &none      &none      &none      &none      &bt BT_CLR
 #ifdef TBLE_DUAL_2U
-&trans &trans        &trans     &kp RPAR                &trans                    &trans       &trans         &trans    &trans     &trans
+&none &none        &none     &none               &none                  &none      &none         &none    &none     &none
 #elif defined(TBLE_MIT)
-&trans &trans        &trans     &kp RPAR        &trans                &trans             &trans      &trans   &trans    &trans     &trans
+&none    &none        &none    &none       &none                &none           &none      &none   &none    &none     &none
 #else
-&bt BT_CLR    &trans     &trans     &trans      &trans       &trans       &trans       &trans     &trans     &trans     &trans     &trans
-#endif
-            >;
-        };
-
-        med_layer {
-            label = "MED";
-            bindings = <
-&trans      &kp F1     &kp F2    &kp F3     &kp F4     &kp F5   &kp F6    &kp C_BRI_DEC  &kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE
-&trans      &kp F7     &kp F8    &kp F9     &kp F10    &kp F11  &kp F12   &none          &kp C_PREV    &kp C_PP      &kp C_NEXT    &none
-&trans      &none      &none     &none      &none      &none    &none     &none          &none         &none         &none         &none
-#ifdef TBLE_DUAL_2U
-&trans      &trans     &trans     &trans          &trans                &trans            &trans     &trans     &trans     &trans
-#elif defined(TBLE_MIT)
-&trans      &trans     &trans     &tran      &trans          &trans           &trans      &trans     &trans     &trans     &trans
-#else  
-&trans      &trans     &trans     &trans     &trans     &trans    &trans      &trans      &trans     &trans     &trans     &trans
+&none    &none     &none    &none     &none      &none       &none       &none     &none    &none    &none     &trans
 #endif
             >;
         };
