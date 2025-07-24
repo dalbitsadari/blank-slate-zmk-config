@@ -124,7 +124,7 @@
 #ifdef QWERTY_BASE
  &kp Q    &kp W    &kp E    &mt LPAR R   &mt RPAR T    &mt LBKT Y   &mt RBKT U   &kp I     &kp O     &kp P      &kp C_BRI_UP    &kp C_VOL_UP
  &kp A    &kp S    &kp D    &mt LBRC F   &mt RBRC G    &mt LT H     &mt GT J     &kp K     &kp L     &kp RET    &kp C_BRI_DN    &kp C_VOL_DN
- &kp Z    &kp X    &kp C    &kp V        &kp SPACE     &kp BSPC     &kp B        &kp N     &kp M     &mo 2      &kp LANG1       &kp C_MUTE
+ &kp Z    &kp X    &kp C    &kp V        &kp SPACE     &kp BSPC     &kp B        &kp N     &kp M     &mo NAV      &kp LANG1       &kp C_MUTE
 #else
  &kp ESC    &kp Q      &kp W      &kp F       &kp P          &kp B          &kp J            &kp L          &kp U       &kp Y      &kp QUOT      &kp BKSP
  &kp TAB    &kp A      &kp R      &kp S       &kp T          &kp G          &kp M            &kp N          &kp E       &kp I      &kp O         &kp QUOT
@@ -135,7 +135,7 @@
 #elif defined(TBLE_MIT)
  &kp LCTRL  &mo FNC   &kp LGUI  &kp LALT    &mo NAV          &kp SPACE         &mo NUM      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &kp LCTRL  &kp LGUI   &kp LALT  &mo 3   &kp LSHIFT    &kp DEL   &kp K_APP   &kp RALT   &kp RGUI    &kp RCTRL   &kp LANG2      &mo 4
+ &kp LCTRL  &kp LGUI   &kp LALT  &mo NUM   &kp LSHIFT    &kp DEL   &kp K_APP   &kp RALT   &kp RGUI    &kp RCTRL   &kp LANG2      &mo FNC
 #endif
             >;
         };
