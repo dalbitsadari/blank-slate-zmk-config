@@ -9,7 +9,6 @@
 // #define TBLE_MIT     1
 // #define TBLE_DUAL_2U 1
 
-#define DEF 0
 #define NAV 1
 #define NUM 2
 #define FNC 3
@@ -111,8 +110,8 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            label = "DEF";
+        base_layer {
+            label = "Base";
             bindings = <
 		#ifdef QWERTY_BASE
  			&kp Q      &kp W      &kp E     &mt LPAR R   &mt RPAR T    &mt LBKT Y   &mt RBKT U   &kp I     &kp O     &kp P      &kp C_BRI_UP    &kp C_VOL_UP
