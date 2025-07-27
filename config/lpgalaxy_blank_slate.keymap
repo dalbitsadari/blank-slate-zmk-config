@@ -36,6 +36,11 @@
 #endif
     };
 
+&mt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <300>;
+};
+
     macros {
       ZMK_MACRO(thumbs_up,
 		wait-ms = <1>;
@@ -58,7 +63,7 @@
         compatible = "zmk,combos";
 	combo_tab {
             timeout-ms = <50>;
-            key-positions = <13 14>;
+            key-positions = <12 13>;
             bindings = <&kp TAB>;
 	};
 
