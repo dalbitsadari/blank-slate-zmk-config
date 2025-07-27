@@ -54,6 +54,75 @@
 	};
     };
 
+    combos {
+        compatible = "zmk,combos";
+	combo_tab {
+            timeout-ms = <50>;
+            key-positions = <13 14>;
+            bindings = <&kp TAB>;
+	};
+
+	combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+	};
+
+	combo_caps {
+            timeout-ms = <50>;
+            key-positions = <12 14>;
+            bindings = <&kp CAPS>;
+	};
+
+	combo_dot {
+            timeout-ms = <50>;
+            key-positions = <31 32>;
+            bindings = <&kp DOT>;
+	};
+
+	combo_comma {
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+            bindings = <&kp COMMA>;
+	};
+
+	combo_semi {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp SEMI>;
+	};
+
+	combo_slash {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp SLASH>;
+	};
+
+	combo_ctrlz {
+	    timeout-ms = <50>;
+	    key-positions = <24 27>;
+	    bindings = <&kp LC(Z)>;
+        };
+
+	combo_ctrlx {
+	    timeout-ms = <50>;
+	    key-positions = <24 25>;
+	    bindings = <&kp LC(X)>;
+        };
+
+	combo_ctrlc {
+	    timeout-ms = <50>;
+	    key-positions = <25 26>;
+	    bindings = <&kp LC(C)>;
+        };
+
+	combo_ctrlv {
+	    timeout-ms = <50>;
+	    key-positions = <26 27>;
+	    bindings = <&kp LC(V)>;
+        };
+    };
+
 // Conditional layer only when we have less thumb keys
 #ifdef TBLE_DUAL_2U
     cond_layers {
