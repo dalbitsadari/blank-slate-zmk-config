@@ -17,7 +17,7 @@
 
 #define NAV_L 1
 #define NUM_L 2
-#define SYM_L 3
+#define FNC_L 3
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -130,7 +130,7 @@
         compatible = "zmk,conditional-layers";
 	tri {
 	    if-layers = <NUM_L NAV_L>;
-	    then-layer = <SYM_L>;
+	    then-layer = <FNC_L>;
         };
     };
 #endif
@@ -153,9 +153,9 @@
 #ifdef TBLE_DUAL_2U
  &kp LCTRL  &kp LGUI   &kp LALT   &mo NAV_L         &shifty                        &kp SPACE                &mo NUM_L   &kp LALT   &kp RGUI      &kp RSHIFT
 #elif defined(TBLE_MIT)
- &kp LCTRL  &mo SYM_L   &kp LGUI  &kp LALT    &mo NAV_L          &kp SPACE                   &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
+ &kp LCTRL  &mo FNC_L   &kp LGUI  &kp LALT    &mo NAV_L          &kp SPACE                   &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &kp LCTRL  &kp LGUI   &kp LALT  &mo NUM_L      &kp LSHIFT    &kp DEL      &kp K_APP    &kp RALT  &kp RGUI  &kp RCTRL  &kp LANG2       &mo SYM_L
+ &kp LCTRL  &kp LGUI   &kp LALT  &mo NUM_L      &kp LSHIFT    &kp DEL      &kp K_APP    &kp RALT  &kp RGUI  &kp RCTRL  &kp LANG2       &mo FNC_L
 #endif
             >;
         };
@@ -192,18 +192,18 @@
             >;
         };
 
-        sym_layer {
-            label = "Sym";
+        fnc_layer {
+            label = "FNC";
             bindings = <
-&trans     &kp LBRC   &kp AMPS   &kp STAR    &kp LPAR     &kp RBRC     &trans     &trans    &trans       &trans       &trans     &bootloader
-&trans     &kp COLON  &kp DLLR   &kp PRCNT   &kp CARET    &kp PLUS     &trans     &trans    &trans       &trans       &trans     &trans
-&trans     &kp TILDE  &kp EXCL   &kp AT      &kp HASH     &kp PIPE     &trans     &trans    &trans       &trans       &trans     &trans
+		&bt &bt BT_SEL 0  &bt &bt BT_SEL 1  &bt &bt BT_SEL 2   &bt &bt BT_SEL 3    &bt &bt BT_SEL 4    &none        &none        &none      &none      &none      &none     &bootloader
+		&none             &none             &none              &none               &none               &none        &none        &none      &none      &none      &none     &none
+		&none             &none             &none              &none               &none               &none        &none        &none      &none      &none      &none     &bt BT_CLR
 #ifdef TBLE_DUAL_2U
 &trans &trans        &trans     &kp RPAR                &trans                    &trans       &trans         &trans &trans &trans
 #elif defined(TBLE_MIT)
 &trans &trans        &trans     &kp RPAR        &trans                &trans             &trans      &trans   &trans &trans &trans
 #else
-&trans &trans        &trans     &kp RPAR        &trans          &trans       &trans    &trans  &trans         &trans &trans &trans
+&none         &none     &none     &none      &none        &none     &none   &none  &none        &none    &none   &trans
 #endif
             >;
         };
