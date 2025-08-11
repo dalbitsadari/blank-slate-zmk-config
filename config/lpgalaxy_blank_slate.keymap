@@ -18,6 +18,8 @@
 #define NAV_L 1
 #define NUM_L 2
 #define FNC_L 3
+#define NEW_L 4
+
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -55,74 +57,6 @@
 	};
     };
 
-    combos {
-        compatible = "zmk,combos";
-	combo_tab {
-            timeout-ms = <20>;
-            key-positions = <12 13>;
-            bindings = <&kp TAB>;
-	};
-
-	combo_esc {
-            timeout-ms = <20>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-	};
-
-	combo_caps {
-            timeout-ms = <20>;
-            key-positions = <12 14>;
-            bindings = <&kp CAPS>;
-	};
-
-	combo_dot {
-            timeout-ms = <20>;
-            key-positions = <31 32>;
-            bindings = <&kp DOT>;
-	};
-
-	combo_comma {
-            timeout-ms = <20>;
-            key-positions = <30 31>;
-            bindings = <&kp COMMA>;
-	};
-
-	combo_semi {
-            timeout-ms = <20>;
-            key-positions = <19 20>;
-            bindings = <&kp SEMI>;
-	};
-
-	combo_slash {
-            timeout-ms = <20>;
-            key-positions = <18 19>;
-            bindings = <&kp SLASH>;
-	};
-
-	combo_ctrlz {
-	    timeout-ms = <20>;
-	    key-positions = <24 27>;
-	    bindings = <&kp LC(Z)>;
-        };
-
-	combo_ctrlx {
-	    timeout-ms = <20>;
-	    key-positions = <24 25>;
-	    bindings = <&kp LC(X)>;
-        };
-
-	combo_ctrlc {
-	    timeout-ms = <20>;
-	    key-positions = <25 26>;
-	    bindings = <&kp LC(C)>;
-        };
-
-	combo_ctrlv {
-	    timeout-ms = <20>;
-	    key-positions = <26 27>;
-	    bindings = <&kp LC(V)>;
-        };
-    };
 
 // Conditional layer only when we have less thumb keys
 #ifdef TBLE_DUAL_2U
@@ -142,9 +76,9 @@
             label = "Base";
             bindings = <
 #ifdef QWERTY_BASE 
- &kp Q      &kp W      &kp E     &mt LPAR R   &mt RPAR T    &mt LBKT Y   &mt RBKT U   &kp I     &kp O     &kp P      &kp C_BRI_UP    &kp C_VOL_UP
- &kp A      &kp S      &kp D     &mt LBRC F   &mt RBRC G    &mt LT H     &mt GT J     &kp K     &kp L     &kp RET    &kp C_BRI_DN    &kp C_VOL_DN
- &kp Z      &kp X      &kp C     &kp V        &kp SPACE     &kp BSPC     &kp B        &kp N     &kp M     &mo NAV_L    &kp LANG1       &kp C_MUTE
+		 &kp Q      &kp W      &kp E     &kp R    &kp T      &kp ESC    &kp INS    &kp Y     &kp U     &kp I      &kp O    &kp P
+		 &kp A      &kp S      &kp D     &kp F    &kp G      &kp TAB    &kp RET    &kp H     &kp J     &kp K      &kp L    &kp SEMI
+		 &kp Z      &kp X      &kp C     &kp V    &kp SPACE  &kp CAPS   &kp DEL    &kp BSPC  &kp B     &kp N      &kp M    &kp SLASH
 #else
  &kp ESC    &kp Q      &kp W      &kp F       &kp P          &kp B          &kp J            &kp L          &kp U       &kp Y      &kp QUOT      &kp BKSP
  &kp TAB    &kp A      &kp R      &kp S       &kp T          &kp G          &kp M            &kp N          &kp E       &kp I      &kp O         &kp QUOT
@@ -155,7 +89,7 @@
 #elif defined(TBLE_MIT)
  &kp LCTRL  &mo FNC_L   &kp LGUI  &kp LALT    &mo NAV_L          &kp SPACE                   &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &kp LCTRL  &kp LGUI   &kp LALT  &mo NUM_L      &kp LSHIFT    &kp DEL      &kp K_APP    &kp RALT  &kp RGUI  &kp RCTRL  &kp LANG2       &mo FNC_L
+		 &kp LCTRL  &kp LGUI   &kp LALT  &kp LSHIFT   &mo NUM_L  &mo NEW_L  &mo FNC_L  &mo NAV_L  &kp RSHIFT   &kp RALT  &kp RGUI  &kp RCTRL
 #endif
             >;
         };
@@ -163,15 +97,15 @@
         nav_layer {
             label = "Nav";
             bindings = <
-		&kp F1      &kp F2      &kp F3      &kp F4      &none      &none     &kp HOME     &none       &kp PG_UP      &none      &none     &none
-		&kp F5      &kp F6      &kp F7      &kp F8      &none      &none     &kp END      &kp UP      &kp PG_DN      &trans     &none     &none
-		&kp F9      &kp F10     &kp F11     &kp F12     &none      &trans    &kp LEFT     &kp DOWN    &kp RIGHT      &trans     &none     &none
+		&kp F1      &kp F2      &kp F3      &kp F4      &none      &none      &none     &none     &kp HOME     &kp UP       &kp END    &kp PG_UP
+		&kp F5      &kp F6      &kp F7      &kp F8      &none      &none      &none     &none     &kp LEFT     &kp DOWN     &kp RIGHT  &kp PG_DOWN
+		&kp F9      &kp F10     &kp F11     &kp F12     &none      &trans     &trans    &trans    &none        &kp SPACE    &none      &kp RET
 #ifdef TBLE_DUAL_2U
 &trans  &trans        &trans     &trans              &trans                    &trans       &trans         &trans &trans &trans
 #elif defined(TBLE_MIT)
 &trans  &trans        &trans     &trans      &trans                &trans             &trans      &trans   &trans &trans &trans
 #else
-&trans      &trans      &trans      &trans      &trans     &trans    &trans       &trans      &trans         &trans     &none     &none
+		&trans      &trans      &trans      &trans      &trans     &trans    &trans     &trans    &trans       &trans       &trans    &trans
 #endif
             >;
         };
@@ -179,15 +113,15 @@
         num_layer {
             label = "Num";
             bindings = <
-	&kp GRAVE    &kp APOS    &kp SEMI    &kp BSLH     &none      &none      &kp N7    &kp N8     &kp N9      &kp EQUAL   &trans    &trans
-	&kp EXCL     &kp AT      &kp HASH    &kp DOLLAR   &none      &none      &kp N4    &kp N5     &kp N6      &trans      &trans    &trans
-	&kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK    &trans     &trans     &kp N1    &kp N2     &kp N3      &kp PLUS    &trans    &trans
+		&kp GRAVE    &kp APOS    &kp SEMI    &kp BSLH     &kp LPAR   &kp RPAR    &kp LBKT    &kp RBKT    &kp N7    &kp N8     &kp N9      &kp PLUS
+		&kp EXCL     &kp AT      &kp HASH    &kp DOLLAR   &kp LT     &kp GT      &kp LBRC    &kp RBRC    &kp N4    &kp N5     &kp N6      &kp MINUS
+		&kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK    &trans     &trans      &trans      &trans      &kp N1    &kp N2     &kp N3      &kp STAR
 #ifdef TBLE_DUAL_2U
 &trans  &trans       &trans     &kp N0              &trans                 &trans            &trans         &trans &trans &trans
 #elif defined(TBLE_MIT)
 &trans  &trans       &trans     &kp N0      &trans           &none            &trans        &kp DEL      &trans &trans &trans
 #else			
-&trans       &trans      &trans      &trans       &trans     &trans     &kp N0    &kp SLASH  &kp ASTRK   &kp MINUS   &trans    &trans
+		&trans       &trans      &trans      &trans       &trans     &trans    &trans      &none       &kp N0    &kp DOT   &kp COMMA    &kp SLASH
 #endif
             >;
         };
@@ -195,15 +129,31 @@
         fnc_layer {
             label = "FNC";
             bindings = <
-		&bt BT(0)         &bt BT(1)         &bt BT(2)          &bt BT(3)           &bt BT(4)           &none        &none        &none      &none      &none      &studio_unlock     &bootloader
-		&none             &none             &none              &none               &none               &none        &none        &none      &none      &none      &none     &none
-		&none             &none             &none              &none               &none               &none        &none        &none      &none      &none      &none     &bt BT_CLR
+		&bt BT(0)    &bt BT(1)    &bt BT(2)     &bt BT(3)     &bt BT(4)     &none        &none        &none      &none      &none      &studio_unlock     &bootloader
+		&none        &none        &none         &none         &none         &none        &none        &none      &none      &none      &none     &none
+		&none        &none        &none         &none         &none         &none        &none        &none      &none      &none      &none     &none
 #ifdef TBLE_DUAL_2U
 &trans &trans        &trans     &kp RPAR                &trans                    &trans       &trans         &trans &trans &trans
 #elif defined(TBLE_MIT)
 &trans &trans        &trans     &kp RPAR        &trans                &trans             &trans      &trans   &trans &trans &trans
 #else
-&none         &none     &none     &none      &none        &none     &none   &none  &none        &none    &none   &trans
+		&bt BT_CLR   &none        &none         &none         &none         &none        &none        &none      &none      &none       &none   &none
+#endif
+            >;
+        };
+
+        new_layer {
+            label = "NEW";
+            bindings = <
+		&none    &none     &none      &none       &none      &none      &none     &none      &none      &none      &none     &none
+		&none    &none     &none      &none       &none      &none      &none     &none      &none      &none      &none     &none
+		&none    &none     &none      &none       &none      &none      &none     &none      &none      &none      &none     &none
+#ifdef TBLE_DUAL_2U
+&none    &none     &none      &none       &none      &none      &none     &none      &none      &none      &none     &none
+#elif defined(TBLE_MIT)
+&none    &none     &none      &none       &none      &none      &none     &none      &none      &none      &none     &none
+#else
+		&none    &none     &none      &none       &none      &none      &none     &none      &none      &none      &none     &none
 #endif
             >;
         };
