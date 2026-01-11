@@ -121,7 +121,7 @@
 #elif defined(TBLE_MIT)
 &trans  &trans       &trans     &kp N0      &trans           &none            &trans        &kp DEL      &trans &trans &trans
 #else			
-		&trans       &trans      &trans      &trans       &trans     &trans  &trans   &kp N0    &trans   &trans    &none    &none
+		&trans       &trans      &trans      &trans       &trans     &trans  &mo FNC_L   &kp N0    &trans   &trans    &none    &none
 #endif
             >;
         };
@@ -137,7 +137,7 @@
 #elif defined(TBLE_MIT)
 &trans &trans        &trans     &kp RPAR        &trans                &trans             &trans      &trans   &trans &trans &trans
 #else
-       &bt BT_CLR     &none         &none         &none         &none        &none        &none      &none      &none       &none    &none   &none
+       &bt BT_CLR     &none         &none         &none         &none        &none        &none      &none      &none       &bt BT_CLR_ALL    &none   &none
 #endif
             >;
         };
