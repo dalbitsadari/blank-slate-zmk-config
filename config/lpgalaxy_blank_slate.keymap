@@ -145,9 +145,9 @@
         new_layer {
             label = "NEW";
             bindings = <
-		&kp EXCL     &kp AT      &kp HASH    &kp DOLLAR   &none    &none     &kp LBKT    &kp RBKT    &none      &kp DEL    &none    &none
-		&kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK    &none    &none     &kp LPAR    &kp RPAR    &kp APOS   &kp SEMI   &none    &none
-		&kp TILDE    &kp GRAVE   &kp BSLH    &none        &trans   &trans    &kp COMMA   &kp DOT     &none      &kp FSLH   &none    &none
+		&kp EXCL     &kp AT      &kp HASH    &kp DOLLAR   &none        &none       &kp LBKT    &kp RBKT    &none      &kp DEL    &none    &none
+		&kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK    &kp LANG1    &kp LANG2   &kp LPAR    &kp RPAR    &kp APOS   &kp SEMI   &none    &none
+		&kp TILDE    &kp GRAVE   &kp BSLH    &none        &trans       &trans      &kp COMMA   &kp DOT     &none      &kp FSLH   &none    &none
 #ifdef TBLE_DUAL_2U
 &none    &none     &none      &none       &none      &none      &none     &none      &none      &none      &none     &none
 #elif defined(TBLE_MIT)
