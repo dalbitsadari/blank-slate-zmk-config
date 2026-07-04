@@ -22,8 +22,8 @@
 
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
-&lt { quick_tap_ms = <200>; };
-&mt { quick_tap_ms = <100>; flavor = "tap-preferred"; };
+&lt { quick-tap-ms = <200>; };
+&mt { quick-tap-ms = <100>; flavor = "tap-preferred"; };
 
 #define BT(n) BT_SEL n
 
@@ -39,12 +39,16 @@
 #endif
     };
 
-    macros {
+macros {
       ZMK_MACRO(thumbs_up,
-		wait_ms = <1>;
-		tap_ms = <5>;
-                bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
-		)
+                bindings = <&macro_wait_time 1>,
+                           <&kp PLUS>,
+                           <&kp COLON>,
+                           <&kp PLUS>,
+                           <&kp N1>,
+                           <&kp COLON>,
+                           <&kp RET>;
+      )
     };
     
     tap_dances {
